@@ -322,11 +322,11 @@
 				</configuration>
 			</plugin>
 
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.apache.avro</groupId>
 				<artifactId>avro-maven-plugin</artifactId>
 				<version>1.8.0</version>
-			</plugin>
+			</plugin> -->
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -340,11 +340,30 @@
 				<version>3.2.2</version>
 			</plugin>
 
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.apache.avro</groupId>
 				<artifactId>avro-maven-plugin</artifactId>
 				<version>1.8.0</version>
-			</plugin>
+				<executions>
+					<execution>
+						<id>schemas</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>schema</goal>
+						</goals>
+						<configuration>
+							<includes>
+								<include>StringPair.avsc</include>
+								<include>WeatherRecord.avsc</include>
+							</includes>
+							<stringType>String</stringType>
+							<sourceDirectory>src/main/resources</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-sources/java
+							</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin> -->
 
 			<plugin>
 				<groupId>org.scalatest</groupId>
